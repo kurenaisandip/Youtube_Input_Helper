@@ -1,0 +1,25 @@
+{
+    "manifest_version": 1,
+    "name": "Youtube Input Helper",
+    "description": "Manage and auto-fill YouTube video details.",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "https://www.youtube.com/*"
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/upload*"
+            ],
+            "js": [
+                "content_script.js"
+            ]
+        }
+    ]
+}
