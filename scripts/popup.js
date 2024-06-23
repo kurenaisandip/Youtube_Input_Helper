@@ -1,14 +1,18 @@
 function openAddItemPage()
 {
-    chrome.windows.create({
-        url: chrome.runtime.getURL("pages/addItems.html"),
-        type: "popup",
-        width: 400,
-        height: 600
-    }, function (window)
-    {
-        console.log("Add Item Page Opened");
-    });
+    // Fetch the content of addItems.html
+    fetch(chrome.runtime.getURL("pages/addItems.html"))
+        .then(response => response.text())
+        .then(data =>
+        {
+            // Replace popup.html content with addItems.html content
+            document.body.innerHTML = data;
+
+        })
+        .catch(error =>
+        {
+            console.error('Error fetching addItems.html:', error);
+        });
 
 }
 
