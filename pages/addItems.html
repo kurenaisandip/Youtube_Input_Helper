@@ -15,7 +15,12 @@
         <button id="addItemBtn">Save</button>
     </header>
 
+    <form id="addItemForm">
+        <input type="text" id="addTitle" placeholder="Title" required>
+        <textarea id="addDescription" placeholder="Description"></textarea>
+    </form>
 
+    <script src="/scripts/add.js"></script>
     <script>
         //adding an item
         document.getElementById('addItemButton').addEventListener('click', function ()
