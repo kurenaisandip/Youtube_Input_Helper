@@ -14,13 +14,26 @@
         <button id="addItemBtn">+</button>
     </header>
     <div class="list">
-        <ul>
-            <p>Add a new item by click the + button at the top right side</p>
+        <ul id="itemList">
+
 
         </ul>
     </div>
+    <p id="instruction">Add a new item by click the + button at the top right side</p>
 
     <script src="/scripts/popup.js"></script>
+    <script>
+        // Listen for messages from addItems.html
+        chrome.runtime.onMessage.addListener(function (message, sender, sendResponse)
+        {
+            if (message.action === 'itemAdded')
+            {
+                // Hide the instruction message
+                var instruction = document.getElementById('instruction');
+                instruction.style.display = 'none';
+            }
+        });
+    </script>
 
 
 

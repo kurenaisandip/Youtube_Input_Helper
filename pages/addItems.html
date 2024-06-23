@@ -16,7 +16,16 @@
     </header>
 
 
+    <script>
+        //adding an item
+        document.getElementById('addItemButton').addEventListener('click', function ()
+        {
+            // Logic to add item goes here
 
+            // After item is added, send message to popup.html
+            chrome.runtime.sendMessage({ action: 'itemAdded' });
+        });
+    </script>
 
 </body>
 
